@@ -7,9 +7,8 @@
 /* Drupal Paths */
  
 // Site Path (do not use a trailing slash)
-// Drupal.settings.site_path = 'http://114.34.79.27:8888/drupal-7.28/'; // e.g. http://www.example.com
-Drupal.settings.site_path = 'http://roadkill.tw/testbed/';
-// Drupal.settings.site_path = 'http://roadkill.tw/';
+Drupal.settings.site_path = 'http://roadkill.tw/testbed'; // e.g. http://www.example.com
+
 // Default Services Endpoint Path
 Drupal.settings.endpoint = 'drupalgap';
 
@@ -22,8 +21,8 @@ Drupal.settings.language_default = 'und';
 /* Drupal Caching */
 
 // Set to true to enable local storage caching.
-Drupal.settings.cache.entity.enabled = true;
-Drupal.settings.cache.views.enabled = true;
+Drupal.settings.cache.entity.enabled = false;
+Drupal.settings.cache.views.enabled = false;
 
 // Number of seconds before cached copy expires. Set to 0 to cache forever, set
 // to 60 for one minute, etc.
@@ -49,8 +48,8 @@ drupalgap.settings.front = 'dashboard';
 drupalgap.settings.theme = 'easystreet3';
 
 // Logo
-// drupalgap.settings.logo = 'themes/easystreet3/images/drupalgap.jpg';
-drupalgap.settings.logo = 'img/roadkill.jpg';
+//drupalgap.settings.logo = 'themes/easystreet3/images/drupalgap.jpg';
+drupalgap.settings.logo = 'images/roadkill.jpg';
 
 // Loader Animations - http://demos.jquerymobile.com/1.4.0/loader/
 drupalgap.settings.loader = {
@@ -78,9 +77,8 @@ drupalgap.settings.loader = {
 /** Contributed Modules - www/app/modules **/
 
 //Drupal.modules.contrib['example'] = {};
-Drupal.modules.contrib['geofield'] = {};
-/** Custom Modules - www/app/modules/custom **/
 
+/** Custom Modules - www/app/modules/custom **/
 
 //Drupal.modules.custom['my_module'] = {};
 
@@ -93,7 +91,7 @@ drupalgap.settings.menus = {}; // Do not remove this line.
 drupalgap.settings.menus['user_menu_anonymous'] = {
   links:[
     {
-      title: '登入',
+      title: 'Login',
       path: 'user/login',
       options: {
         attributes: {
@@ -102,7 +100,7 @@ drupalgap.settings.menus['user_menu_anonymous'] = {
       }
     },
     {
-      title: '註冊',
+      title: 'Register',
       path: 'user/register',
       options: {
         attributes: {
@@ -117,7 +115,7 @@ drupalgap.settings.menus['user_menu_anonymous'] = {
 drupalgap.settings.menus['user_menu_authenticated'] = {
   links:[
     {
-      title: '我的帳戶',
+      title: 'My Account',
       path: 'user',
       options: {
         attributes: {
@@ -126,7 +124,7 @@ drupalgap.settings.menus['user_menu_authenticated'] = {
       }
     },
     {
-      title: '登出',
+      title: 'Logout',
       path: 'user/logout',
       options: {
         attributes: {
@@ -141,7 +139,7 @@ drupalgap.settings.menus['user_menu_authenticated'] = {
 drupalgap.settings.menus['main_menu'] = {
   links:[
     {
-      title:'內容',
+      title:'Content',
       path:'node',
       options:{
         attributes:{
@@ -150,7 +148,7 @@ drupalgap.settings.menus['main_menu'] = {
       }
     },
     {
-      title:'分類',
+      title:'Taxonomy',
       path:'taxonomy/vocabularies',
       options:{
         attributes:{
@@ -159,7 +157,7 @@ drupalgap.settings.menus['main_menu'] = {
       }
     },
     {
-      title:'使用者',
+      title:'Users',
       path:'user-listing',
       options:{
         attributes:{
@@ -204,6 +202,7 @@ drupalgap.settings.blocks.easystreet3 = {
     primary_local_tasks:{},
   },
   content:{
+    messages: {},
     main:{}
   },
   footer:{
