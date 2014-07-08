@@ -54,3 +54,6 @@ IOS/www/
 *.pages
 *.zip
 *.pdf
+
+# Cordova platform build
+platforms/*
