@@ -117,6 +117,7 @@ function _geofield_field_widget_form_click(lat_id, lon_id) {
       function(position) {
         $('#' + lat_id).val(position.coords.latitude);
         $('#' + lon_id).val(position.coords.longitude);
+        $('#' + lon_id).change();
       },
       function(error) {
         console.log('_geofield_field_widget_form_click - getCurrentPosition - ' + error);
@@ -142,8 +143,10 @@ function geofield_assemble_form_state_into_field(entity_type, bundle,
     field_key.use_key = false;
     // Return the assembled value.
     return {
-      lat: coordinates[0],
-      lon: coordinates[1]
+      geom: {
+        lat: coordinates[0],
+        lon: coordinates[1]
+      }
     };
   }
   catch (error) {
