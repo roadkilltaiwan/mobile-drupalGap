@@ -9247,7 +9247,7 @@ function user_login_form(form, form_state) {
     };
     form.elements.submit = {
       'type': 'submit',
-      'value': 'Login'
+      'value': '登入'
     };
     return form;
   }
@@ -9305,7 +9305,7 @@ function user_menu() {
         'page_callback': 'user_page'
       },
       'user/login': {
-        'title': '登入',
+        'title': '驗證',
         'page_callback': 'drupalgap_get_form',
         'page_arguments': ['user_login_form'],
         options: {reloadPage: true}
