@@ -91,14 +91,14 @@ drupalgap.settings.menus = {}; // Do not remove this line.
 drupalgap.settings.menus['user_menu_anonymous'] = {
   links:[
     {
-      title: 'Login',
+      title: '登入',
       path: 'user/login',
       options: {
         attributes: {
           'data-theme': 'b'
         }
       }
-    },
+    }/*,
     {
       title: 'Register',
       path: 'user/register',
@@ -107,7 +107,7 @@ drupalgap.settings.menus['user_menu_anonymous'] = {
           'data-theme': 'b'
         }
       }
-    }
+    }*/
   ]
 };
 
@@ -115,8 +115,8 @@ drupalgap.settings.menus['user_menu_anonymous'] = {
 drupalgap.settings.menus['user_menu_authenticated'] = {
   links:[
     {
-      title: 'My Account',
-      path: 'user',
+      title: '回報',
+      path: 'node',
       options: {
         attributes: {
           'data-theme': 'b'
@@ -124,7 +124,7 @@ drupalgap.settings.menus['user_menu_authenticated'] = {
       }
     },
     {
-      title: 'Logout',
+      title: '登出',
       path: 'user/logout',
       options: {
         attributes: {
@@ -137,10 +137,10 @@ drupalgap.settings.menus['user_menu_authenticated'] = {
 
 // Main Menu
 drupalgap.settings.menus['main_menu'] = {
-  links:[
+  links:[/*
     {
-      title:'Content',
-      path:'node',
+      title:'上傳',
+      path:'node/add/article',
       options:{
         attributes:{
           'data-icon':'star'
@@ -164,7 +164,7 @@ drupalgap.settings.menus['main_menu'] = {
           'data-icon':'info'
         }
       }
-    }
+    }*/
   ]
 };
 
@@ -182,21 +182,25 @@ drupalgap.settings.blocks.easystreet3 = {
     user_menu_anonymous:{
       roles:{
         value:['anonymous user'],
-        mode:'include',
+        mode:'include'
       }
     },
     user_menu_authenticated:{
       roles:{
         value:['authenticated user'],
-        mode:'include',
+        mode:'include'
       }
     }
   },
   sub_navigation:{
     main_menu:{
+      pages:{
+        value:['dashboard'],
+        mode:'include'
+      },
       roles:{
-        value:['administrator'],
-        mode:'include',
+        value:['authenticated user'],
+        mode:'include'
       }
     },
     primary_local_tasks:{},
@@ -206,7 +210,7 @@ drupalgap.settings.blocks.easystreet3 = {
     main:{}
   },
   footer:{
-    powered_by:{}
+    //powered_by:{}
   }
 };
 
@@ -220,7 +224,7 @@ drupalgap.settings.menus.regions['header'] = {
   links:[
     /* Home Button */
     {
-      title:'Home',
+      title:'首頁',
       path:'',
       options:{
         attributes:{
@@ -235,7 +239,7 @@ drupalgap.settings.menus.regions['header'] = {
     },
     /* Back Button */
     {
-      title:'Back',
+      title:'返回',
       options:{
         attributes:{
           "data-icon":"back",

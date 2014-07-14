@@ -13,8 +13,8 @@ function geofield_field_formatter_view(entity_type, entity, field, instance, lan
     // Iterate over each item and assemble the element.
     $.each(items, function(delta, item) {
         var markup =
-        '<p>Latitude: ' + entity[field.field_name][langcode][delta].lat + '<br />' +
-        'Longitude: ' + entity[field.field_name][langcode][delta].lon + '</p>';
+        '<p>緯度: ' + entity[field.field_name][langcode][delta].lat + '<br />' +
+        '經度: ' + entity[field.field_name][langcode][delta].lon + '</p>';
         element[delta] = {
           markup: markup
         };
@@ -40,7 +40,7 @@ function geofield_field_widget_form(form, form_state, field, instance, langcode,
       var lat_id = items[delta].id + '-lat';
       var lat = {
         id: lat_id,
-        title: 'Latitude',
+        title: '緯度',
         type: 'textfield',
         options: {
           attributes: {
@@ -52,7 +52,7 @@ function geofield_field_widget_form(form, form_state, field, instance, langcode,
       var lon_id = items[delta].id + '-lon';
       var lon = {
         id: lon_id,
-        title: 'Longitude',
+        title: '經度',
         type: 'textfield',
         options: {
           attributes: {
@@ -67,7 +67,7 @@ function geofield_field_widget_form(form, form_state, field, instance, langcode,
       };
       var btn = {
         id: items[delta].id + '-btn',
-        text: 'Get current position',
+        text: '自動偵測',
         type: 'button',
         options: {
           attributes: {

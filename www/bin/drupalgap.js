@@ -1683,7 +1683,7 @@ function drupalgap_check_visibility(type, data) {
       });
     }
     // Pages.
-    else if (typeof data.pages !== 'undefined' && data.pages &&
+    if (visible && typeof data.pages !== 'undefined' && data.pages &&
       data.pages.value && data.pages.value.length != 0) {
       var current_path = drupalgap_path_get();
       var current_path_parts = current_path.split('/');
@@ -2616,7 +2616,7 @@ function _drupalgap_form_add_another_item(form_id, name, delta) {
 function drupalgap_form_cancel_button() {
   try {
     return {
-      'title': 'Cancel',
+      'title': '取消',
       attributes: {
         onclick: 'javascript:drupalgap_back();'
       }
@@ -6422,7 +6422,7 @@ function drupalgap_entity_get_core_fields(entity_type, bundle) {
         };
         fields.title = {
           'type': 'textfield',
-          'title': 'Title',
+          'title': '標題',
           'required': true,
           'default_value': '',
           'description': ''
@@ -7243,9 +7243,9 @@ function image_field_widget_form(form, form_state, field, instance, langcode,
 
     // Set the default button text, and if a value was provided,
     // overwrite the button text.
-    var button_text = 'Take Photo';
+    var button_text = '拍照';
     if (items[delta].value) { button_text = item.value; }
-    var browse_button_text = 'Browse';
+    var browse_button_text = '瀏覽';
     if (items[delta].value2) { browse_button_text = item.value2; }
 
     // Place variables into document for PhoneGap image processing.
@@ -8219,7 +8219,7 @@ function node_edit(form, form_state, node) {
     // Add submit to form.
     form.elements.submit = {
       'type': 'submit',
-      'value': 'Save'
+      'value': '上傳'
     };
 
     // Add cancel button to form.
@@ -8266,7 +8266,7 @@ function node_menu() {
         'page_callback': 'node_add_page'
       },
       'node/add/%': {
-        'title': 'Add content',
+        'title': 'Roadkill Report',
         'page_callback': 'node_add_page_by_type',
         'page_arguments': [2],
         options: {reloadPage: true}
@@ -8278,7 +8278,7 @@ function node_menu() {
         'pageshow': 'node_page_view_pageshow',
         'title_callback': 'node_page_title',
         'title_arguments': [1]
-      },
+      }/*,
       'node/%/view': {
         'title': 'View',
         'type': 'MENU_DEFAULT_LOCAL_TASK',
@@ -8294,7 +8294,7 @@ function node_menu() {
         'access_callback': 'node_access',
         'access_arguments': [1],
         options: {reloadPage: true}
-      }
+      }*/
     };
     return items;
   }
@@ -8310,12 +8310,12 @@ function node_page() {
     var content = {
       'create_content': {
         'theme': 'button_link',
-        'path': 'node/add',
-        'text': 'Create Content'
+        'path': 'node/add/article',
+        'text': '上傳'
       },
       'node_listing': {
         'theme': 'jqm_item_list',
-        'title': 'Content List',
+        'title': '記錄',
         'items': [],
         'attributes': {'id': 'node_listing_items'}
       }
@@ -8914,7 +8914,7 @@ function system_menu() {
   try {
     var items = {
       'dashboard': {
-        'title': 'Dashboard',
+        'title': 'Roadkill.tw',
         'page_callback': 'system_dashboard_page'
       },
       'error': {
@@ -9237,12 +9237,12 @@ function user_login_form(form, form_state) {
     form.bundle = null;
     form.elements.name = {
       'type': 'textfield',
-      'title': 'Username',
+      'title': '帳號',
       'required': true
     };
     form.elements.pass = {
       'type': 'password',
-      'title': 'Password',
+      'title': '密碼',
       'required': true
     };
     form.elements.submit = {
@@ -9275,7 +9275,7 @@ function user_login_form_submit(form, form_state) {
  * @return {String}
  */
 function user_logout_callback() {
-  try { return '<p>Logging out...</p>'; }
+  try { return '<p>登出中...</p>'; }
   catch (error) { console.log('user_logout_callback - ' + error); }
 }
 
@@ -9305,13 +9305,13 @@ function user_menu() {
         'page_callback': 'user_page'
       },
       'user/login': {
-        'title': 'Login',
+        'title': '登入',
         'page_callback': 'drupalgap_get_form',
         'page_arguments': ['user_login_form'],
         options: {reloadPage: true}
       },
       'user/logout': {
-        'title': 'Logout',
+        'title': '登出',
         'page_callback': 'user_logout_callback',
         'pagechange': 'user_logout_pagechange',
         options: {reloadPage: true}
