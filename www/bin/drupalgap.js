@@ -3727,7 +3727,8 @@ function _drupalgap_form_validate(form, form_state) {
             if (element.title) { field_title = element.title; }
             drupalgap_form_set_error(
               name,
-              'The ' + field_title + ' field is required.'
+              //'The ' + field_title + ' field is required.'
+              '必填欄位：' + field_title
             );
           }
         }
@@ -8257,7 +8258,7 @@ function node_menu() {
   try {
     var items = {
       'node': {
-        'title': 'Content',
+        'title': 'Roadkill Report',
         'page_callback': 'node_page',
         'pageshow': 'node_page_pageshow'
       },
